@@ -2,6 +2,8 @@ package sort;
 
 import java.util.Arrays;
 
+
+//时间复杂度 nlogn
 public class QuickSort {
     public static void main(String[] args) {
         int[] array = {5,9,7,3,1,5,6,7,4,12};
