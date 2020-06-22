@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <bean id="myAspect" class="ccc.examples.springAOPByXML.MyAspect"/>
+
+    <aop:config>
+        <aop:pointcut id="pc" expression="execution(* ccc.examples.springAOPByXML.ClassOne.*(..))"/>
+        <aop:aspect ref="myAspect">
+            <aop:before method="beforeMethod" pointcut-ref="pc"/>
+            <aop:after-returning method="afterRuturnMethod" pointcut-ref="pc"/>
+            <aop:around method="aroundMethod" pointcut="execution(* ccc.examples.springAOPByXML.ClassOne.*(int)) and args(i))"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean class="ccc.examples.springAOPByXML.ClassOne" id="classOne">
+        <constructor-arg index="0" value="ccc"/>
+    </bean>
+
+</beans>
