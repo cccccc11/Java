@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    &lt;!&ndash;-->
+<!--        为全限定类名添加别名-->
+<!--    &ndash;&gt;-->
+<!--    <typeAliases>-->
+<!--        <typeAlias alias="Student" type="com.mybatis3.domain.Student" />-->
+<!--    </typeAliases>-->
+
+<!--    &lt;!&ndash;-->
+<!--        为自定义类注册类处理器-->
+<!--    &ndash;&gt;-->
+<!--    <typeHandlers>-->
+<!--        <typeHandler handler="com.mybatis3.typehandlers. PhoneTypeHandler" />-->
+<!--    </typeHandlers>-->
+
+<!--    &lt;!&ndash;-->
+<!--        全局设置-->
+<!--    &ndash;&gt;-->
+<!--    <settings>-->
+<!--    <setting name="cacheEnabled" value="true" />-->
+<!--    <setting name="lazyLoadingEnabled" value="true" />-->
+<!--    <setting name="multipleResultSetsEnabled" value="true" />-->
+<!--    <setting name="useColumnLabel" value="true" />-->
+<!--    <setting name="useGeneratedKeys" value="false" />-->
+<!--    <setting name="autoMappingBehavior" value="PARTIAL" />-->
+<!--    <setting name="defaultExecutorType" value="SIMPLE" />-->
+<!--    <setting name="defaultStatementTimeout" value="25000" />-->
+<!--    <setting name="safeRowBoundsEnabled" value="false" />-->
+<!--    <setting name="mapUnderscoreToCamelCase" value="false" />-->
+<!--    <setting name="localCacheScope" value="SESSION" />-->
+<!--    <setting name="jdbcTypeForNull" value="OTHER" />-->
+<!--    <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode ,toString" />-->
+<!--    </settings>-->
+
+    <properties resource="application.properties"/>
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}" />
+                <property name="url" value="${jdbc.url}" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <!--
+        mapper文件映射
+    -->
+    <mappers>
+        <mapper resource="mappers/testMapper.xml" />
+<!--        <mapper url="file:///D:/mybatisdemo/app/mappers/TutorMapper.xml" />-->
+<!--        <mapper class="com.mybatis3.mappers.TutorMapper" />-->
+<!--        <package name="mappers" />-->
+
+    </mappers>
+
+</configuration>
